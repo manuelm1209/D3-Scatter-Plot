@@ -28,7 +28,7 @@
         const yValue = (d) => d.sepal_length;
 
         // d3 margin convention.
-        const margin = {top: 20, right: 20, bottom: 20, left:20};
+        const margin = {top: 20, right: 20, bottom: 20, left:50};
 
         const width = window.innerWidth;
         const height = window.innerHeight;    
@@ -78,7 +78,14 @@
                 .attr('cy', d => d.y)
                 .attr('r', 5);
 
-        }
+            // Left axis
+            svg
+                .append('g')
+                .attr('transform', `translate(${margin.left},0)`)
+                .call(d3.axisLeft(y));
+
+
+        };
         main();
 
     </script> 
