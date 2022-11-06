@@ -7,7 +7,10 @@
           margin: 0;
           overflow: hidden;
         }
-      </style>
+        .tick text {
+            font-size: 24px;
+        }
+    </style>
 </head>
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.6.1/d3.min.js"></script>   
@@ -50,9 +53,9 @@
             // X scale
             const x = d3.scaleLinear()
                 // Use next line to start the axis from the minimum value.
-                // .domain(d3.extent(data, xValue))
-                // Use next line to start the axis from 0.
-                .domain([0, d3.max(data, xValue)])
+                .domain(d3.extent(data, xValue))
+                // // Use next line to start the axis from 0.
+                // .domain([0, d3.max(data, xValue)])
                 .range([margin.left, width - margin.right]);
 
             // Y scale
