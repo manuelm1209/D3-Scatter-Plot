@@ -54,11 +54,26 @@
                 .domain(d3.extent(data, yValue))
                 .range([height, 0]);
 
+            const marks = data.map(d => ({
+                x: x(xValue(d)),
+                y: y(yValue(d)),
+            }));
+
             console.log(x.domain());
             console.log(y.domain());
 
             console.log(x.range());
             console.log(y.range());
+
+            console.log(marks);
+
+            svg
+                .selectAll('circle')
+                .data(marks)
+                .join('circle')
+                .attr('cx', d => d.x)
+                .attr('cy', d => d.y)
+                .attr('r', 5);
 
         }
         main();
