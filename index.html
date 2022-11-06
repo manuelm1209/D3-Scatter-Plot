@@ -47,12 +47,13 @@
             // X scale
             const x = d3.scaleLinear()
                 .domain(d3.extent(data, xValue))
-                .range([0, width]);
+                // .range([0, width]);
+                .range([10, width - 10]);
 
             // Y scale
             const y = d3.scaleLinear()
                 .domain(d3.extent(data, yValue))
-                .range([height, 0]);
+                .range([height - 10, 10]);
 
             const marks = data.map(d => ({
                 x: x(xValue(d)),
