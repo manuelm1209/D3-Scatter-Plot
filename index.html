@@ -49,12 +49,18 @@
 
             // X scale
             const x = d3.scaleLinear()
-                .domain(d3.extent(data, xValue))
+                // Use next line to start the axis from the minimum value.
+                // .domain(d3.extent(data, xValue))
+                // Use next line to start the axis from 0.
+                .domain([0, d3.max(data, xValue)])
                 .range([margin.left, width - margin.right]);
 
             // Y scale
             const y = d3.scaleLinear()
+                // Use next line to start the axis from the minimum value.
                 .domain(d3.extent(data, yValue))
+                // // Use next line to start the axis from 0
+                // .domain([0, d3.max(data, yValue)])
                 .range([height - margin.bottom, margin.top]);
 
             const marks = data.map(d => ({
